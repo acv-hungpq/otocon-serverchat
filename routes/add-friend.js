@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
     } else {
         let id_friend = req.body.id_friend.toString();
         FriendsModel.checkIsFriend(id_user, id_friend, (err, results) => {
-            if (results == null) {
+            if (results.length == 0) {
                 let new_friend = new FriendsModel({
                     user_send: id_user.toString(),
                     user_receive: req.body.id_friend.toString(),

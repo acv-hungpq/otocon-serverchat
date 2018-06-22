@@ -25,13 +25,13 @@ sockets.init = server => {
             clientOnline = disconnectSocket(socket, clientOnline);
         });
 
-        socket.on('join-group', data => {
+        /*socket.on('join-group', data => {
             joinGroup(socket, data, user);
         });
 
         socket.on('push-group', data => {
             pushGroup(socket, data);
-        });
+        });*/
 
         socket.on('chat-one', data => {
             chatOneSocket(socket, data, user, clientOnline);
