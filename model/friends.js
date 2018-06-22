@@ -7,7 +7,7 @@ const STATUS_ERROR = 0;
 let Schema = new mongoose.Schema({
     user_send: Number,
     user_receive: Number,
-    accepted: String,
+    accepted: Number,
     time: {type: Number, default: Date.now}
 }, {collection: 'friends'});
 
