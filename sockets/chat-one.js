@@ -10,12 +10,16 @@ let handle = (socket, data, user, clientOnline) => {
     let friend_id = helper.findClientId(clientOnline, to_id_user);
     let time = Date.now();
 
-    socket.broadcast.to(friend_id).emit('receive-message-one',{
+    let data_send_user = {
         id_user: id_user,
         message: message,
         type: type,
         time: time
-    });
+    };
+
+    socket.broadcast.to(friend_id).emit('receive-message-one', data_send_user);
+
+    socket.emit('receive-message-one', data_send_user);
 
     let new_chat = new ChatoneModel({
         user_send: id_user,

@@ -39,7 +39,11 @@ sockets.init = server => {
         socket.on('chat-one', data => {
             console.log('Co user chat: ');
             console.log(data);
-            chatOneSocket(socket, data, user, clientOnline);
+            if (user) {
+                chatOneSocket(socket, data, user, clientOnline);
+            } else {
+                console.log('Chua khoi tao user');
+            }
         });
     });
 };
