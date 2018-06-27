@@ -18,10 +18,13 @@ sockets.init = server => {
                 id_client: socket.id
             });
 
+            console.log('Co them user: ');
+            console.log('id: ' + id_user + ', socket: ' + socket.id);
             // OnlineUser(socket, id_user, clientOnline);
         });
 
         socket.on('disconnect', () => {
+            console.log('User vua thoat: ' + socket.id);
             clientOnline = disconnectSocket(socket, clientOnline);
         });
 
@@ -34,6 +37,8 @@ sockets.init = server => {
         });*/
 
         socket.on('chat-one', data => {
+            console.log('Co user chat: ');
+            console.log(data);
             chatOneSocket(socket, data, user, clientOnline);
         });
     });
